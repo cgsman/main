@@ -258,14 +258,15 @@ Für die folgende Überprüfung öffnet du nochmals die Konsole auf dem Hypervis
 
   auto vmbr0
   iface vmbr0 inet static
-        address 192.168.199.20
-        netmask 255.255.255.0
+        address 192.168.199.20/16
         gateway 192.168.199.1
         bridge_ports eno1
         bridge_stp off
         bridge_fd 0
 
   iface eno2 inet manual
+
+(CIDR-Notation bei vmbr0: Die früher mögliche Schreibweise mit "netmask..." scheint bei neueren Proxmox-Varianten nicht zu funktionieren).
 
 Nun erstellst Du die zweite Bridge:
 
